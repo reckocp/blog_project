@@ -4,24 +4,19 @@ class Router
   end
 
   def route
-    # Routes are parsed from top down, so make sure they follow this style
-    # /resource/:id/action
-    # /resouce/:id
-    # /resource
-    # If you don't use that order, it will be like the if statements in fizzbuzz
-    # syntax:
-    # get(<route_string>, <controller_name_constant>, <action_name_symbol)
-    # put('/tweets/:id/edit', TweetsController, :edit)
-    #This route would be for putting an update for the tweet where :id is the number in the URL
-    #
-    # Put your routes in this array using the get, post, put, delete methods below. (remember order matters)
     [
-      post('/tweets', TweetsController, :create),
-      get('/tweets/new', TweetsController, :new),
-      get('/tweets/:id', TweetsController, :show),
-      get('/tweets', TweetsController, :index),
-      get('/not_here', TweetsController, :not_here), # This is to demo the new redirect_to method
-
+      delete('/posts/:id', PostsController, :destroy),
+      delete('/comments/:id', CommentsController, :destroy),
+      put('/posts/:id', PostsController, :update),
+      put('/comments/:id', CommentsController, :update),
+      get('/posts/new', PostsController, :new),
+      get('/comments/new', CommentsController, :new),
+      get('/posts/:id', PostsController, :show),
+      get('/comments/:id', CommentsController, :show),
+      get('/posts', PostsController, :index),
+      get('/comments', CommentsController, :index),
+      post('/posts', PostsController, :create),
+      post('/comments', CommentsController, :create),
       get('/assets/:type/:name', AssetsController, :handle)
     ].flatten.find(&:itself)
   end

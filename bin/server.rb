@@ -23,8 +23,8 @@ module App
     @all_pcomments ||= [
       (Comment.new(1, "I'm glad you enjoyed it!", "Sarah Huey", 1)),
       (Comment.new(2, "Keep studying!", "Elizer Rios", 2)),
-      (Comment.new(3, "Don't give up!", "Steven Ralph", 3))
-      (Comment.new(4, "I'm sure you're doing great!", "Maura Recko", 4))
+      (Comment.new(3, "Don't give up!", "Steven Ralph", 3)),
+      (Comment.new(4, "I'm sure you're doing great!", "Maura Recko", 4)),
       (Comment.new(5, "Ruby sucks!", "Whitney Farrior", 5))
     ]
   end

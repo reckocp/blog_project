@@ -1,0 +1,2 @@
+class APICommentsController < ApplicationController
+end

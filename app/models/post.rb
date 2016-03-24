@@ -1,5 +1,5 @@
 class Post
-  attr_accessor id:, :title, :author, :body, :published
+  attr_accessor :id, :title, :author, :body, :published
   def initialize(id, title, author, body, published)
     @id = id
     @title = title
@@ -18,6 +18,6 @@ class Post
   end
 
   def published?
-    @published == true
-  end 
+    @published == false
+  end
 end

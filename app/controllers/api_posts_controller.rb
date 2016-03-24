@@ -1,22 +1,16 @@
-class PostsController < ApplicationController
+class APIPostsController
   def index
-    @posts = App.posts
-    render_template 'posts/index.html.erb'
+    render App.posts.to_json, status: "200 OK"
   end
 
   def show
     post = find_post_by_id
 
     if post
-      @post = post
-      render_template 'posts/show.html.erb'
+      render post.to_json
     else
       render_not_found
     end
-  end
-
-  def new
-    render_template 'posts/new.html.erb'
   end
 
   def create
@@ -26,12 +20,8 @@ class PostsController < ApplicationController
     App.posts.push(
       Post.new(new_id, params["title"], params["author"], params["body"], true)
     )
+    render({ message: "Successfully created!", id: new_id }.to_json)
   end
-
-  def edit
-    @post = find_post_by_id
-
-    render_template "posts/edit.html.erb"
 
   def update
     post = find_post_by_id
@@ -48,7 +38,7 @@ class PostsController < ApplicationController
         post.body = params["body"]
       end
 
-      redirect_to "posts/show.html.erb"
+      render post.to_json, status: "200 OK"
     else
       render_not_found
     end
@@ -58,20 +48,18 @@ class PostsController < ApplicationController
     post = find_post_by_id
 
     if post
-      App.posts.delete(post)
+      render({ message: "Successfully Deleted Post" }.to_json)
     else
       render_not_found
     end
   end
 
   private
-
-  def find_post_by_id
-    App.posts.find { |p| p.id == params[:id].to_i }
-  end
-
   def render_not_found
-    render_template "notfound.html.erb"
+    return_message = {
+      message: "Post not found!",
+      status: '404'
+    }.to_json
 
     render return_message, status: "404 NOT FOUND"
   end
