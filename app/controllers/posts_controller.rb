@@ -32,6 +32,7 @@ class PostsController < ApplicationController
     @post = find_post_by_id
 
     render_template "posts/edit.html.erb"
+  end
 
   def update
     post = find_post_by_id

@@ -5,18 +5,11 @@ class Router
 
   def route
     [
-      delete('/posts/:id', PostsController, :destroy),
-      delete('/comments/:id', CommentsController, :destroy),
-      put('/posts/:id', PostsController, :update),
-      put('/comments/:id', CommentsController, :update),
-      get('/posts/new', PostsController, :new),
-      get('/comments/new', CommentsController, :new),
-      get('/posts/:id', PostsController, :show),
-      get('/comments/:id', CommentsController, :show),
-      get('/posts', PostsController, :index),
-      get('/comments', CommentsController, :index),
-      post('/posts', PostsController, :create),
-      post('/comments', CommentsController, :create),
+      api_resource('api/posts', APIPostsController),
+      api_resource('api/comments', APICommentsController),
+      resource("posts", PostsController),
+      resource("comments", CommentsController),
+
       get('/assets/:type/:name', AssetsController, :handle)
     ].flatten.find(&:itself)
   end
