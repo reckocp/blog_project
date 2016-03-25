@@ -20,6 +20,8 @@ class APIPostsController
     App.posts.push(
       Post.new(new_id, params["title"], params["author"], params["body"], true)
     )
+    puts App.tasks.to_json
+
     render({ message: "Successfully created!", id: new_id }.to_json)
   end
 

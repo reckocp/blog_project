@@ -3,3 +3,34 @@ html, body {
   font-family: "helvetica";
   color: #444;
 }
+header {
+  background: #77BED2;
+  height: 6em;
+  width: 100%;
+  margin-top: -1em;
+  margin-bottom: -1em;
+}
+.menu {
+  text-align: center;
+  list-style-type: none;
+  font-family: "Courier New";
+}
+.post_index_header {
+  font-family: "Courier New";
+  font-size: 2em;
+}
+.post_index {
+  font-family: "Courier New";
+  list-style-type: none;
+}
+.post_title {
+  font-size: 1.25em;
+}
+footer {
+  background: #D5E1DD;
+  height: 8em;
+  width: 100%;
+  list-style-type: none;
+  font-family: "Courier New";
+  padding-top: .04em;
+}

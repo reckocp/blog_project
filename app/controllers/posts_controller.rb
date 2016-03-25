@@ -24,8 +24,10 @@ class PostsController < ApplicationController
     new_id = last_post.id + 1
 
     App.posts.push(
-      Post.new(new_id, params["title"], params["author"], params["body"], true)
+      Post.new(new_id, params[:title], params[:author], params[:body], true)
     )
+    redirect_to "/posts"
+
   end
 
   def edit
@@ -60,7 +62,7 @@ class PostsController < ApplicationController
 
     if post
       App.posts.delete(post)
-      redirect_to "posts/index.html.erb"
+      redirect_to "/posts"
     else
       render_not_found
     end

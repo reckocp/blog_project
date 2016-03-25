@@ -1,12 +1,9 @@
-<h1> All Blog Posts</h1>
+<h1 class="post_index_header"> All Blog Posts</h1>
 
-<ul>
+<ul class="post_index">
   <% @posts.each do |post| %>
-    <li><%= post.title %> </br>
-      <%= post.author %></br>
-      <%= post.body %></br>
-      <a href="/posts/<%= post.id %>">show</a>
-    </li>
+    <a href="/posts/<%= post.id %>"><li class="post_title"><%= post.title %></li></a>
+    <li><%= post.author %></li>
+    <li><%= post.body %></li>
   <% end %>
-
 </ul>
