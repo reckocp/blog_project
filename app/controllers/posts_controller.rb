@@ -72,7 +72,7 @@ class PostsController < ApplicationController
   end
 
   def render_not_found
-    render_template "notfound.html.erb"
+    render_template "posts/notfound.html.erb"
 
     render return_message, status: "404 NOT FOUND"
   end

@@ -1,7 +1,7 @@
 class Comment
-  attr_accessor :id, :message, :author
-  def initialize(id, message, author, post_id)
-    @id = id
+  attr_accessor :comment_id, :message, :author
+  def initialize(comment_id, message, author, post_id)
+    @comment_id = comment_id
     @message = message
     @author = author
     @post_id = post_id
