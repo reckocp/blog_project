@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
     if post
       @post = post
+      @comments = App.comments.select { |comment| comment.post_id == post.id }
       render_template 'posts/show.html.erb'
     else
       render_not_found
@@ -39,19 +40,19 @@ class PostsController < ApplicationController
   def update
     post = find_post_by_id
     if post
-      unless params["title"].nil? || params["title"].empty?
-        post.title = params["title"]
+      unless params[:title].nil? || params[:title].empty?
+        post.title = params[:title]
       end
 
-      unless params["author"].nil? || params["author"].empty?
-        post.author = params["author"]
+      unless params[:author].nil? || params[:author].empty?
+        post.author = params[:author]
       end
 
-      unless params["body"].nil? || params["body"].empty?
-        post.body = params["body"]
+      unless params[:body].nil? || params[:body].empty?
+        post.body = params[:body]
       end
 
-      redirect_to "posts/show.html.erb"
+      redirect_to "/posts"
     else
       render_not_found
     end

@@ -28,9 +28,11 @@ header {
 }
 footer {
   background: #D5E1DD;
-  height: 8em;
+  height: 4em;
   width: 100%;
   list-style-type: none;
   font-family: "Courier New";
-  padding-top: .04em;
+  padding-top: 3em;
+  margin-top: 3em;
+  text-align: right;
 }

@@ -7,7 +7,23 @@
   <input type="submit" name="Delete" id="submit" value="DELETE POST" confirm=true/>
 </form>
 
+<p>
+  <a href="/posts/<%= @post.id %>/edit">Edit Post</a>
+</p>
+
 
 <p>
   <a href="/posts">Go to All Posts</a>
 </p>
+
+<p><a href="/comments/new">New Comment</a></p>
+
+<ul>
+ <% @comments.each do |comment| %>
+   <li><%= comment.message %> </br>
+     <%= comment.author %> </br>
+
+     <a href="/comments/<%= comment.comment_id %>">show</a>
+   </li>
+ <% end %>
+</ul>

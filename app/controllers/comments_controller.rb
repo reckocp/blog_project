@@ -24,9 +24,9 @@ class CommentsController < ApplicationController
     new_id = last_comment.comment_id + 1
 
     App.comments.push(
-      Comment.new(new_id, params["message"], params["author"], params["post_id"])
+      Comment.new(new_id, params[:message], params[:author], params[:post_id])
     )
-    redirect_to "comments/index.html.erb"
+    redirect_to "/comments"
   end
 
   def update
@@ -55,6 +55,7 @@ class CommentsController < ApplicationController
 
     if comment
       App.comments.delete(comment)
+      redirect_to "/comments"
     else
       render_not_found
     end
