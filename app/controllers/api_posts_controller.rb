@@ -55,6 +55,10 @@ class APIPostsController
   end
 
   private
+  def find_post_by_id
+    App.posts.find { |p| p.id == params[:id].to_i }
+  end
+
   def render_not_found
     return_message = {
       message: "Post not found!",

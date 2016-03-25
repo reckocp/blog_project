@@ -1,7 +1,9 @@
 <h1><%= @post.title %></h1>
 <h3><%= @post.author %></h3>
 <h4><%= @post.body %></h4>
-
+<form action="/posts/<%= @post.id %>/delete" method="POST">
+  <input type="submit" name="Delete" id="submit" value="DELETE POST" confirm=true/>
+</form>
 
 
 <p>

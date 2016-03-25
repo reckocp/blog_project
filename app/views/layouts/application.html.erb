@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>My Awesome Page!</title>
-    <link media="screen" rel="stylesheet" href="/assets/stylesheets/application.css"  />
-  </head>
-  <body>
-    <!-- Ruby will place one of my templates inside of this file, right here where I call "yield"  -->
-    <%= yield %>
-  </body>
+ <head>
+   <title>My Blog</title>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+   <link rel="stylesheet" type="text/css" href="/assets/stylesheets/application.css">
+ </head>
+ <body>
+   <header>
+     <nav class="navigation">
+       <ul class="menu">
+         <li><a href="/posts">Home</a></li>
+         <li><a href="/posts">Post Index</a></li>
+         <li><a href="/comments">Comment Index</a></li>
+         <li><a href="/posts/new">Create New Post</a></li>
+         <li><a href="/comments/new">New Comment</a></li>
+       </ul>
+     </nav>
+   </header>
+
+
+   <section class="main">
+     <div class="sub-header">
+       <a class="button" href="##">New Post</a>
+     </div>
+
+      <%= yield %>
+   </section>
+
+   <footer>
+     <div class="footer-menu">
+       <ul>
+         <li><a href="#">Status<alt="Status"></a></li>
+         <li><a href="#">API<alt="API"></a></li>
+         <li><a href="#">Training<alt="Training"></a></li>
+         <li><a href="#">Shop<alt="Shop"></a></li>
+         <li><a href="#">About<alt="About"></a></li>
+       </ul>
+     </div>
+   </footer>
+ </body>
 </html>

@@ -55,7 +55,9 @@ class APICommentsController < ApplicationController
   end
 
   private
-
+  def find_comment_by_id
+    App.comments.find { |c| c.comment_id == params[:id].to_i }
+  end
 
   def render_not_found
     return_message = {

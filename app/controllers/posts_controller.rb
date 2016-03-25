@@ -60,6 +60,7 @@ class PostsController < ApplicationController
 
     if post
       App.posts.delete(post)
+      redirect_to "posts/index.html.erb"
     else
       render_not_found
     end
@@ -73,7 +74,5 @@ class PostsController < ApplicationController
 
   def render_not_found
     render_template "posts/notfound.html.erb"
-
-    render return_message, status: "404 NOT FOUND"
   end
 end
