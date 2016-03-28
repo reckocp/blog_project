@@ -5,6 +5,7 @@ class Comment
     @message = message
     @author = author
     @post_id = post_id
+
   end
 
   def to_json(_ = nil)
@@ -14,4 +15,8 @@ class Comment
       author: author
     }.to_json
   end
+  def link_ids
+    @post_id = App.posts.find(param[:id])
+  end
+
 end

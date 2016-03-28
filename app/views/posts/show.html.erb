@@ -1,29 +1,42 @@
-<h1><%= @post.title %></h1>
-<h3><%= @post.author %></h3>
-<h4><%= @post.body %></h4>
+<div class = "show_page">
+  <h1><%= @post.title %></h1>
+  <h3><%= @post.author %></h3>
+  <h4><%= @post.body %></h4>
 
 
-<form action="/posts/<%= @post.id %>/delete" method="POST">
-  <input type="submit" name="Delete" id="submit" value="DELETE POST" confirm=true/>
-</form>
+  <form action="/posts/<%= @post.id %>/delete" method="POST">
+    <input type="submit" name="Delete" id="submit" value="DELETE POST" confirm=true/>
+  </form>
 
-<p>
-  <a href="/posts/<%= @post.id %>/edit">Edit Post</a>
-</p>
+  <p>
+    <a href="/posts/<%= @post.id %>/edit">Edit Post</a>
+  </p>
+
+  <div class="new_comment">
+   <form action="/comments" method="POST">
+     <fieldset>
+       <legend>Comment:</legend><textarea id='message' rows="2" cols="100" name='message' id='message'  />
+       </textarea>
+
+         <p>Author <input type="text" name="author" id="author" /></p>
+
+         <p><input class="button" type="submit" name="commit" id="submit"></p>
+
+     </fieldset>
+   </form>
+   </div>
+  <p>
+    <a href="/posts">Go to All Posts</a>
+  </p>
 
 
-<p>
-  <a href="/posts">Go to All Posts</a>
-</p>
+  <ol>
+   <% @comments.each do |comment| %>
+     <li><%= comment.message %> </br>
+       <%= comment.author %> </br>
 
-<p><a href="/comments/new">New Comment</a></p>
-
-<ul>
- <% @comments.each do |comment| %>
-   <li><%= comment.message %> </br>
-     <%= comment.author %> </br>
-
-     <a href="/comments/<%= comment.comment_id %>">show</a>
-   </li>
- <% end %>
-</ul>
+       <a href="/comments/<%= comment.comment_id %>">show</a>
+     </li>
+   <% end %>
+ </ol>
+</div>

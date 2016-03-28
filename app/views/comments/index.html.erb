@@ -1,10 +1,12 @@
-<h1> All Comments </h1>
+<div class = "comment_index">
+  <h1> All Comments </h1>
 
-<ul>
-  <% @comments.each do |comment| %>
-    <li><%= comment.message %> </br>
-      <%= comment.author %></br>
-      <a href="/comments/<%= comment.comment_id %>">show</a>
-    </li>
-  <% end %>
-</ul>
+  <ol>
+    <% @comments.each do |comment| %>
+      <li><%= comment.message %> </br>
+        <%= comment.author %></br>
+        <a href="/comments/<%= comment.comment_id %>">show</a>
+      </li>
+    <% end %>
+  </ol>
+</div>

@@ -21,8 +21,11 @@ class CommentsController < ApplicationController
 
   def create
     last_comment = App.comments.max_by { |comment| comment.comment_id }
-    new_id = last_comment.comment_id + 1
-
+      if @post_id == nil
+        new_id = last_comment.comment_id + 1
+      else
+        link_ids
+      end
     App.comments.push(
       Comment.new(new_id, params[:message], params[:author], params[:post_id])
     )

@@ -1,9 +1,12 @@
-<h1> Create a new comment!</h1>
+<div class = "new_comment_page">
+    <h1> Create a new comment!</h1>
 
-<form action="/comments" method="POST">
-  <ul>
-    <li>Message<input type="text" name="message" id="message"/><li>
-    <li>Author<input type="text" name="author" id="author"/></li>
-    <li><input type="submit" name="commit" id="submit"/></li>
-  </ul>
-</form>
+  <form action="/comments" method="POST">
+    <ul>
+      <li>Message<input type="text" name="message" id="message"/><li>
+      <li>Author<input type="text" name="author" id="author"/></li>
+      <li>Post Number<input type="number" name="post_id" id="post_id"/></li>
+      <li><input type="submit" name="commit" id="submit"/></li>
+    </ul>
+  </form>
+</div>
